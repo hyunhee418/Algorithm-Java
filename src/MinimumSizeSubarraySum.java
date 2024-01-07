@@ -1,7 +1,7 @@
 public class MinimumSizeSubarraySum {
     public static void main(String[] args) {
         int target = 7;
-        int[] nums = {1,1,1,1,1,1,1,7};
+        int[] nums = {1,2,3,4,2,1};
         System.out.println(minSubArrayLen(target, nums));
     }
 

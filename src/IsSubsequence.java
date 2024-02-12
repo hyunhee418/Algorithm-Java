@@ -21,6 +21,5 @@ public class IsSubsequence {
             t = t.substring(0, tIndex) + "0"+ t.substring(tIndex+1);
         }
         return true;
-
     }
 }

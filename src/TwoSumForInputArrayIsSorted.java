@@ -10,6 +10,7 @@ public class TwoSumForInputArrayIsSorted {
             System.out.print(ele);
         }
     }
+
     public static int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
         Map<Integer, Integer> map = new HashMap<>();

@@ -12,6 +12,7 @@ public class LongestConsecutiveSequence {
         if (nums.length == 0) return 0;
         Arrays.sort(nums);
         int len = nums.length;
+
         Map<Integer, Integer> map = new HashMap<>(Map.of(nums[0] + 1, 1));
         for (int idx = 0; idx < nums.length; idx++) {
             map.put(nums[idx]+1, map.getOrDefault(nums[idx], 0)+1);

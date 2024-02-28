@@ -1,48 +1,18 @@
-import org.w3c.dom.NodeList;
-
 public class LinkedListCycle {
     public static void main(String[] args) {
         ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
 
-        ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
-        ListNode result = mergeTwoLists(list1, list2);
-        while (result.next != null) {
-            System.out.print(result.val+",");
-            result = result.next;
-        }
-        System.out.println(mergeTwoLists(list1, list2));
+        Boolean result = hasCycle(list1);
     }
 
-    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode result = new ListNode();
-        ListNode node1 = list1;
-        ListNode node2 = list2;
-        ListNode node3 = result;
-        while (node1 != null && node2 != null) {
-            if (node2.val > node1.val) {
-                node3.next = node1;
-                node1 = node1.next;
-            } else {
-                node3.next = node2;
-                node2 = node2.next;
-            }
-            node3 = node3.next;
+    public static boolean hasCycle(ListNode head) {
+        ListNode node1 = head;
+        ListNode node2 = head;
+        while (node2!=null && node2.next!=null) {
+            node2 = node2.next.next;
+            node1 = node1.next;
+            if (node1 == node2) return true;
         }
-        if (node1 == null) {
-            node3.next = node2;
-        }
-        if (node2 == null) {
-            node3.next = node1;
-        }
-        return result.next;
+        return false;
     }
-}
-
-
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
